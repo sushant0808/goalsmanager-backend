@@ -52,6 +52,7 @@ const registerUser = async (req, res) => {
         res.cookie("token", token, { maxAge: date.setDate(date.getDate() + 1)});
 
         res.json({
+            token,
             message: 'Registration successful',
             status: 200,
         })
