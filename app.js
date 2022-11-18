@@ -9,7 +9,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://goalsmanager.onrender.com"],
     credentials:true,
 }))
 
