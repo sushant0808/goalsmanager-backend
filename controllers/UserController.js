@@ -49,7 +49,7 @@ const registerUser = async (req, res) => {
 
         const token = jwt.sign({ userId: response._id, isLoggedIn: true }, process.env.JWT_SECRET_KEY);
 
-        res.cookie("token", token, { maxAge: date.setDate(date.getDate() + 1), httpOnly: false });
+        res.cookie("token", token, { maxAge: date.setDate(date.getDate() + 1)});
 
         res.json({
             message: 'Registration successful',
