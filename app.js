@@ -14,7 +14,7 @@ app.use(cors({
     credentials: true,
 }))
 
-app.get('/maka', function (req, res) {
+// app.get('/maka', function (req, res) {
     // res.sendFile(path.join(__dirname, 'path/to/your/index.html'), function (err) {
     //     if (err) {
     //         res.status(500).send(err)
@@ -34,7 +34,7 @@ app.get('/maka', function (req, res) {
             }
         })
     })
-})
+// })
 
 app.use(cookieParser());
 
