@@ -7,6 +7,7 @@ require("dotenv").config();
 const userRoute = require("./routes/UserRoute");
 const app = express();
 const bodyParser = require("body-parser");
+const path = require("path");
 // const { chdir, cwd } = require('process');
 
 app.use(cors({
@@ -15,19 +16,15 @@ app.use(cors({
 }))
 
 
-// chdir("../");
-
-// let finalPath = `${cwd()}/client/public/index.html`;
-
-// console.log('dir', finalPath);
-
-// app.get('/*', function (req, res) {
-//     res.sendFile(finalPath, function (err) {
-//         if (err) {
-//             res.status(500).send(err)
-//         }
-//     })
-// })
+app.get('/*', function (req, res) {
+    console.log('__dirname',__dirname)
+    console.log('ok',path.join(__dirname, '../client/public/index.html'));
+    res.sendFile(path.join(__dirname, '../client/public/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
 
 
 app.use(cookieParser());
