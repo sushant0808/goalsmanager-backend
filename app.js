@@ -7,34 +7,28 @@ require("dotenv").config();
 const userRoute = require("./routes/UserRoute");
 const app = express();
 const bodyParser = require("body-parser");
-const { chdir, cwd } = require('process');
+// const { chdir, cwd } = require('process');
 
 app.use(cors({
     origin: ["https://goalsmanager.onrender.com", "http://localhost:3000"],
     credentials: true,
 }))
 
-// app.get('/maka', function (req, res) {
-    // res.sendFile(path.join(__dirname, 'path/to/your/index.html'), function (err) {
-    //     if (err) {
-    //         res.status(500).send(err)
-    //     }
-    // })
 
-    chdir("../");
+// chdir("../");
 
-    let finalPath = `${cwd()}/client/public/index.html`;
+// let finalPath = `${cwd()}/client/public/index.html`;
 
-    console.log('dir', finalPath);
+// console.log('dir', finalPath);
 
-    app.get('/*', function (req, res) {
-        res.sendFile(finalPath, function (err) {
-            if (err) {
-                res.status(500).send(err)
-            }
-        })
-    })
+// app.get('/*', function (req, res) {
+//     res.sendFile(finalPath, function (err) {
+//         if (err) {
+//             res.status(500).send(err)
+//         }
+//     })
 // })
+
 
 app.use(cookieParser());
 
