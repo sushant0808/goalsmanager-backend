@@ -16,15 +16,15 @@ app.use(cors({
 }))
 
 
-app.get('/*', function (req, res) {
-    console.log('__dirname',__dirname)
-    console.log('ok',path.join(__dirname, '../client/public/index.html'));
-    res.sendFile(path.join(__dirname, '../client/public/index.html'), function (err) {
-        if (err) {
-            res.status(500).send(err)
-        }
-    })
-})
+// app.get('/*', function (req, res) {
+//     console.log('__dirname',__dirname)
+//     console.log('ok',path.join(__dirname, '../client/public/index.html'));
+//     res.sendFile(path.join(__dirname, '../client/public/index.html'), function (err) {
+//         if (err) {
+//             res.status(500).send(err)
+//         }
+//     })
+// })
 
 
 app.use(cookieParser());
