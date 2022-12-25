@@ -29,7 +29,7 @@ const {ObjectId} = mongoose.Types;
 const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
-    const userObj = {
+    const userData = {
         username,
         email,
         password,
@@ -47,10 +47,19 @@ const registerUser = async (req, res) => {
             })
         }
 
-        const response = await User.create(userObj)
-        console.log('response from registration', response);
+        const data = await User.create(userData)
 
-        const token = jwt.sign({ userId: response._id, isLoggedIn: true }, process.env.JWT_SECRET_KEY);
+        const response = await User.findById(data._id);
+        console.log('');
+
+        const userObj = {
+            userId: response._id,
+            username: response.username,
+            email: response.email,
+            isLoggedIn: true        
+        }
+
+        const token = jwt.sign(userObj, process.env.JWT_SECRET_KEY);
 
         res.cookie("token", token, { maxAge: date.setDate(date.getDate() + 1) });
 
@@ -58,6 +67,7 @@ const registerUser = async (req, res) => {
             token,
             message: 'Registration successful',
             status: 200,
+            userObj,
         })
     } catch (err) {
         console.log(err);
