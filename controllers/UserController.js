@@ -292,7 +292,7 @@ const sendResetPasswordEmail = async (req, res) => {
             text: 'done',
             html: `
                 <p>Click on below link to reset password</p>
-                <a href="http://localhost:3000/reset-password/${userId}">http://localhost:3000/reset-password/${userId}</a>
+                <a href="https://goalsmanager.onrender.com/reset-password/${userId}">https://goalsmanager.onrender.com/reset-password/${userId}</a>
             `
         }
 
